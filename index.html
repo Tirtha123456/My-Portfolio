@@ -7,28 +7,77 @@
 
 <style>
 :root{
-  --bg:#ffffff;
+  --bg1:#f8fafc;
+  --bg2:#eef2ff;
+  --bg3:#ecfeff;
   --text:#0f172a;
   --muted:#475569;
   --line:#e5e7eb;
   --accent:#2563eb;
 }
+
+/* GLOBAL */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Arial;
-  background:var(--bg);
+  background:
+    radial-gradient(900px 500px at 10% 10%, rgba(99,102,241,.15), transparent 60%),
+    radial-gradient(700px 500px at 90% 20%, rgba(34,211,238,.18), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2),var(--bg3));
   color:var(--text);
+  overflow-x:hidden;
 }
+
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:auto;padding:32px}
+
+/* AMBIENT BLOBS */
+.bg-blobs{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
+.blob{
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.45;
+  animation:float 20s infinite alternate ease-in-out;
+}
+.blob.one{
+  background:#6366f1;
+  top:-120px;
+  left:-120px;
+}
+.blob.two{
+  background:#22d3ee;
+  bottom:-160px;
+  right:-120px;
+  animation-delay:6s;
+}
+.blob.three{
+  background:#a78bfa;
+  top:40%;
+  left:60%;
+  animation-delay:12s;
+}
+
+@keyframes float{
+  from{transform:translateY(0) translateX(0)}
+  to{transform:translateY(-60px) translateX(40px)}
+}
 
 /* NAV */
 nav{
   position:sticky;
   top:0;
-  background:white;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
   z-index:10;
 }
@@ -92,8 +141,16 @@ section{padding:100px 0}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 
 .card{
-  border-top:2px solid var(--line);
-  padding-top:24px;
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:28px;
+  border:1px solid var(--line);
+  transition:.25s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 .card h3{
   font-size:22px;
@@ -103,9 +160,7 @@ section{padding:100px 0}
   color:var(--muted);
   line-height:1.6;
 }
-.tags{
-  margin-top:14px;
-}
+
 .tags span{
   display:inline-block;
   font-size:13px;
@@ -135,20 +190,6 @@ section{padding:100px 0}
   color:var(--muted);
 }
 
-/* PROFILE */
-.profile{
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:24px;
-  align-items:center;
-  margin-top:40px;
-}
-.profile img{
-  width:120px;
-  border-radius:12px;
-}
-.profile p{margin:4px 0;color:var(--muted)}
-
 /* FOOTER */
 footer{
   padding:80px 0;
@@ -159,6 +200,13 @@ footer{
 </head>
 
 <body>
+
+<!-- BACKGROUND BLOBS -->
+<div class="bg-blobs">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+</div>
 
 <nav>
   <div class="container nav-inner">
@@ -177,19 +225,19 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <h1>
-    ICT Support Officer delivering reliable, secure & user-focused IT support.
+    ICT Support Officer delivering<br>
+    reliable, secure & user-focused IT support
   </h1>
   <p>
     Experienced ICT Support Officer with strong expertise across service desk operations,
-    system administration, user support, and ICT security. I thrive on resolving issues
-    efficiently while keeping systems and users productive.
+    system administration, user support, and ICT security.
   </p>
 
   <div class="meta">
     <span>📍 Adelaide, Australia</span>
     <span>Windows & Microsoft 365</span>
     <span>Active Directory</span>
-    <span>Service Desk & ITSM</span>
+    <span>Service Desk</span>
   </div>
 </div>
 
@@ -197,84 +245,49 @@ footer{
 <section id="about">
   <h2 class="section-title">About</h2>
   <p class="section-desc">
-    I support organisations by delivering dependable ICT services, clear communication,
-    and strong troubleshooting practices. My work spans frontline service desk support,
-    systems administration assistance, documentation, and security-focused operations.
+    I thrive on resolving technical issues efficiently while ensuring smooth day-to-day ICT operations.
+    My strengths include troubleshooting, system reliability, documentation, and clear communication
+    with both technical and non-technical stakeholders.
   </p>
-
-  <div class="profile">
-    <img src="profile.jpg" alt="Tirtha Adhikari">
-    <div>
-      <p><strong>Tirtha Adhikari</strong></p>
-      <p>ICT Support Officer</p>
-      <p>Adelaide, Australia</p>
-      <p>
-        <a href="https://au.linkedin.com/in/tirtha-adhikari08" target="_blank">LinkedIn</a> ·
-        <a href="resume.pdf" target="_blank">Download CV</a>
-      </p>
-    </div>
-  </div>
 </section>
 
-<!-- FEATURED WORK -->
+<!-- WORK -->
 <section id="work">
   <h2 class="section-title">Featured Work</h2>
   <p class="section-desc">
-    A selection of professional initiatives, hands-on IT practice, and certifications
-    that demonstrate my technical capability and approach to ICT support.
+    A mix of professional initiatives, practical IT labs, and certifications.
   </p>
 
   <div class="grid">
     <div class="card">
-      <h3>Service Desk Knowledge Base Improvement</h3>
-      <p>
-        Developed structured documentation and troubleshooting guides to reduce repeat
-        incidents and improve resolution efficiency.
-      </p>
+      <h3>Service Desk Knowledge Base</h3>
+      <p>Improved troubleshooting guides to reduce repeat incidents.</p>
       <div class="tags">
-        <span>Documentation</span>
-        <span>ITSM</span>
-        <span>User Enablement</span>
+        <span>ITSM</span><span>Documentation</span>
       </div>
     </div>
 
     <div class="card">
-      <h3>Home Lab & Systems Practice</h3>
-      <p>
-        Built lab environments for Windows, Active Directory, and networking to strengthen
-        troubleshooting, configuration, and security knowledge.
-      </p>
+      <h3>Home Lab & Practice</h3>
+      <p>Hands-on labs with Windows, networking, and security fundamentals.</p>
       <div class="tags">
-        <span>Windows</span>
-        <span>Networking</span>
-        <span>Learning Labs</span>
+        <span>Windows</span><span>Networking</span>
       </div>
     </div>
 
     <div class="card">
-      <h3>Onboarding Process Standardisation</h3>
-      <p>
-        Assisted with device provisioning, account setup, and documentation to support
-        consistent and secure onboarding experiences.
-      </p>
+      <h3>Onboarding Standardisation</h3>
+      <p>Supported secure onboarding with device and account provisioning.</p>
       <div class="tags">
-        <span>Onboarding</span>
-        <span>Active Directory</span>
-        <span>Microsoft 365</span>
+        <span>Active Directory</span><span>M365</span>
       </div>
     </div>
 
     <div class="card">
-      <h3>Certifications & Continuous Learning</h3>
-      <p>
-        Ongoing professional development across Microsoft, ITIL, networking, and cloud
-        fundamentals to support modern ICT environments.
-      </p>
+      <h3>Certifications</h3>
+      <p>Microsoft, ITIL, Azure, and CCNA foundations.</p>
       <div class="tags">
-        <span>Microsoft 365</span>
-        <span>Azure Fundamentals</span>
-        <span>ITIL 4</span>
-        <span>CCNA</span>
+        <span>ITIL</span><span>Azure</span><span>CCNA</span>
       </div>
     </div>
   </div>
@@ -288,29 +301,18 @@ footer{
     <h3>ICT Support Officer – City of Norwood Payneham & St Peters</h3>
     <span>Jan 2025 – Present · Adelaide</span>
     <ul>
-      <li>Provide Level 1/2 ICT support for hardware, software, and network issues</li>
-      <li>Support onboarding, device configuration, and account provisioning</li>
-      <li>Maintain Active Directory, Microsoft 365, and server environments</li>
-      <li>Create documentation, user guides, and training materials</li>
+      <li>Level 1/2 ICT support for hardware, software, and network issues</li>
+      <li>Onboarding, device configuration, and user provisioning</li>
+      <li>Active Directory, Microsoft 365, and server support</li>
     </ul>
   </div>
 
   <div class="job">
     <h3>IT Help Desk Support – Transform NDIS</h3>
-    <span>Jul 2022 – Jan 2025 · Adelaide</span>
+    <span>Jul 2022 – Jan 2025</span>
     <ul>
-      <li>Delivered first-level IT support across Windows and enterprise applications</li>
-      <li>Resolved incidents via ticketing systems within SLA targets</li>
-      <li>Provided remote and on-site user support</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <h3>IT Support Analyst – ONCALL Group</h3>
-    <span>Jul 2019 – Jun 2022 · Brisbane</span>
-    <ul>
-      <li>Provided frontline ICT support and assisted with system updates</li>
-      <li>Supported ICT projects and delivered user training</li>
+      <li>First-level IT support across Windows and enterprise apps</li>
+      <li>Incident resolution within SLA targets</li>
     </ul>
   </div>
 </section>
