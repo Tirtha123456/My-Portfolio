@@ -1,705 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tirtha Adhikari | ICT Support Officer</title>
-  <meta name="description" content="Portfolio of Tirtha Adhikari — ICT Support Officer. Support, troubleshooting, systems, and customer-focused IT service." />
+<meta charset="UTF-8">
+<title>Tirtha Adhikari | ICT Support Officer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Open Graph (social preview) -->
-  <meta property="og:title" content="Tirtha Adhikari | ICT Support Officer" />
-  <meta property="og:description" content="Modern, eye-catching ICT portfolio." />
-  <meta property="og:type" content="website" />
+<style>
+:root {
+  --primary:#5b7cfa;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --muted:#64748b;
+}
 
-  <style>
-    :root{
-      --bg: #070A12;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --line: rgba(255,255,255,.12);
-      --accent: #7C5CFF;
-      --accent2:#00D4FF;
-      --good:#2EE59D;
-      --warn:#FFB020;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius: 18px;
-      --max: 1120px;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Segoe UI, Roboto, Arial, sans-serif;
+  background:#0b1220;
+  color:#e5e7eb;
+  line-height:1.6;
+}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background: radial-gradient(1200px 700px at 20% 15%, rgba(124,92,255,.25), transparent 55%),
-                  radial-gradient(1000px 700px at 80% 30%, rgba(0,212,255,.18), transparent 55%),
-                  radial-gradient(900px 600px at 50% 95%, rgba(46,229,157,.12), transparent 55%),
-                  var(--bg);
-      overflow-x:hidden;
-    }
+a{color:var(--primary);text-decoration:none}
 
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
 
-    /* Top nav */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(7,10,18,.55);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      letter-spacing:.2px;
-      font-weight:700;
-    }
-    .dot{
-      width:12px; height:12px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 0 0 6px rgba(124,92,255,.15);
-    }
-    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .chip{
-      font-size:13px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:999px;
-      transition:.18s ease;
-    }
-    .chip:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
-    .cta{
-      font-weight:700;
-      border-color: transparent;
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.85));
-      box-shadow: 0 10px 30px rgba(124,92,255,.25);
-    }
-    .cta:hover{filter:saturate(1.1) brightness(1.05)}
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+}
 
-    /* Hero */
-    .hero{
-      position:relative;
-      padding:70px 0 30px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      align-items:center;
-    }
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns:1fr; padding-top:10px}
-    }
+.hero h1{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:15px;
+}
+.hero p{
+  color:#cbd5f5;
+}
 
-    .headline{
-      font-size: clamp(32px, 5vw, 52px);
-      line-height:1.05;
-      margin:0 0 14px;
-      letter-spacing:-.6px;
-    }
-    .sub{
-      margin:0 0 22px;
-      color:var(--muted);
-      font-size:16px;
-      max-width: 62ch;
-    }
-    .badge-row{display:flex; gap:10px; flex-wrap:wrap; margin: 18px 0 22px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-size:13px;
-      color:var(--muted);
-    }
-    .badge b{color:var(--text); font-weight:700}
-    .btn-row{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      transition:.18s ease;
-      font-weight:700;
-      font-size:14px;
-    }
-    .btn:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.07)}
-    .btn.primary{
-      border-color: transparent;
-      background: linear-gradient(135deg, rgba(124,92,255,.98), rgba(0,212,255,.88));
-    }
-    .btn .icon{width:18px; height:18px; opacity:.95}
+.badges span{
+  display:inline-block;
+  margin:8px 8px 0 0;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+  font-size:14px;
+}
 
-    /* Profile card */
-    .profile{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .profile::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 220px at 30% 0%, rgba(124,92,255,.22), transparent 55%),
-                  radial-gradient(420px 220px at 75% 20%, rgba(0,212,255,.18), transparent 55%);
-      pointer-events:none;
-    }
-    .profile-inner{position:relative; padding:18px}
-    .pf-top{display:flex; gap:14px; align-items:center}
-    .avatar{
-      width:76px; height:76px; border-radius:20px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      object-fit:cover;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-    }
-    .pf-name{margin:0; font-size:18px; letter-spacing:-.2px}
-    .pf-role{margin:3px 0 0; color:var(--muted); font-size:13px}
-    .pf-meta{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px}
-    .stat{
-      border:1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.04);
-      padding:12px;
-    }
-    .stat .k{font-size:12px; color:var(--muted)}
-    .stat .v{font-size:14px; font-weight:800; margin-top:6px}
-    .pf-links{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
-    .mini{
-      font-size:13px;
-      padding:8px 10px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      transition:.18s ease;
-      display:inline-flex; gap:8px; align-items:center;
-    }
-    .mini:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
-    .mini svg{width:16px; height:16px; opacity:.9}
+.hero-card{
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+.hero-card img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--primary);
+}
+.hero-card h3{margin:15px 0 5px}
+.hero-card p{font-size:14px;color:var(--muted)}
 
-    /* Sections */
-    section{padding:38px 0}
-    .section-title{
-      font-size: 18px;
-      letter-spacing:.2px;
-      margin: 0 0 14px;
-    }
-    .section-sub{
-      margin:0 0 20px;
-      color:var(--muted);
-      max-width: 72ch;
-      font-size:14px;
-    }
+.hero-links a{
+  display:inline-block;
+  margin:10px 8px 0;
+  padding:10px 16px;
+  border-radius:10px;
+  background:var(--primary);
+  color:white;
+  font-weight:600;
+}
 
-    .grid-3{
-      display:grid; gap:14px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} }
+/* SECTION */
+section{
+  margin-top:70px;
+}
+section h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+.section-sub{
+  color:var(--muted);
+  max-width:800px;
+}
 
-    .card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.22);
-      transition:.18s ease;
-    }
-    .card:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.055)}
-    .card h3{margin:0 0 8px; font-size:15px}
-    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
-    .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .tag{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      color:var(--muted);
-    }
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+.card h3{margin-top:0}
 
-    /* Timeline */
-    .timeline{
-      border-left: 1px solid var(--line);
-      padding-left: 16px;
-      display:grid; gap:14px;
-    }
-    .event{position:relative}
-    .event::before{
-      content:"";
-      position:absolute; left:-22px; top:6px;
-      width:12px; height:12px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 0 0 6px rgba(124,92,255,.14);
-    }
-    .event .when{font-size:12px; color:var(--muted); margin-bottom:6px}
-    .event .what{font-size:14px; font-weight:800; margin:0 0 6px}
-    .event .where{font-size:13px; color:var(--muted); margin:0 0 8px}
-    .event ul{margin:0; padding-left: 18px; color: var(--muted); font-size:13px; line-height:1.6}
-    .event li{margin:6px 0}
+/* TIMELINE */
+.timeline{
+  border-left:2px solid var(--primary);
+  padding-left:25px;
+}
+.job{
+  margin-bottom:35px;
+}
+.job h3{margin-bottom:5px}
+.job span{
+  font-size:14px;
+  color:var(--muted);
+}
+.job ul{
+  margin-top:10px;
+  padding-left:18px;
+}
 
-    /* Projects */
-    .projects{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
-    @media (max-width: 900px){ .projects{grid-template-columns:1fr} }
-    .project{
-      position:relative; overflow:hidden;
-      padding:16px;
-    }
-    .project .top{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
-      margin-bottom:10px;
-    }
-    .pill{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      white-space:nowrap;
-    }
-    .project .img{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      height:160px;
-      background-size:cover;
-      background-position:center;
-      margin-top:12px;
-      filter:saturate(1.08);
-    }
-    .project .img::after{
-      content:"";
-      display:block; height:100%;
-      background: linear-gradient(180deg, transparent, rgba(7,10,18,.35));
-      border-radius: 16px;
-    }
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-    }
-    @media (max-width: 900px){ .contact{grid-template-columns:1fr} }
-    .field{
-      width:100%;
-      padding:12px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline:none;
-    }
-    .field::placeholder{color: rgba(255,255,255,.45)}
-    textarea.field{min-height:120px; resize:vertical}
-    .small{font-size:12px; color:var(--muted); margin-top:10px; line-height:1.5}
-
-    footer.page{
-      padding: 30px 0 50px;
-      border-top:1px solid var(--line);
-      color: var(--muted);
-      font-size:12px;
-      text-align:center;
-    }
-
-    /* Scroll reveal */
-    .reveal{opacity:0; transform:translateY(10px); transition: .55s ease}
-    .reveal.on{opacity:1; transform:none}
-
-    /* Subtle animated “aurora” layer */
-    .aurora{
-      position:absolute; inset:-80px;
-      background:
-        radial-gradient(500px 200px at 20% 20%, rgba(124,92,255,.20), transparent 60%),
-        radial-gradient(450px 220px at 80% 30%, rgba(0,212,255,.14), transparent 60%),
-        radial-gradient(520px 250px at 45% 80%, rgba(46,229,157,.10), transparent 60%);
-      filter: blur(26px);
-      opacity:.9;
-      animation: floaty 10s ease-in-out infinite alternate;
-      pointer-events:none;
-    }
-    @keyframes floaty{
-      0%{transform:translate3d(0,0,0) scale(1)}
-      100%{transform:translate3d(0,-18px,0) scale(1.03)}
-    }
-  </style>
+/* FOOTER */
+footer{
+  margin-top:80px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Tirtha Adhikari</span>
-      </div>
-      <div class="nav-links">
-        <a class="chip" href="#about">About</a>
-        <a class="chip" href="#skills">Skills</a>
-        <a class="chip" href="#experience">Experience</a>
-        <a class="chip" href="#projects">Projects</a>
-        <a class="chip cta" href="#contact">Contact</a>
-      </div>
+
+<div class="container hero">
+  <div>
+    <h1>ICT Support Officer delivering reliable, secure & user-focused IT support</h1>
+    <p>
+      Experienced ICT Support Officer with strong expertise across service desk operations,
+      system administration, user support, and ICT security.
+      I thrive on resolving technical issues efficiently while ensuring
+      smooth day-to-day operations for organisations and users.
+    </p>
+
+    <div class="badges">
+      <span>Service Desk</span>
+      <span>Windows & M365</span>
+      <span>Active Directory</span>
+      <span>Networking</span>
+      <span>ICT Security</span>
     </div>
   </div>
 
-  <header class="hero">
-    <div class="aurora"></div>
-    <div class="container hero-grid">
-      <div>
-        <h1 class="headline reveal">
-          ICT Support Officer who keeps teams productive, systems stable, and users happy.
-        </h1>
-        <p class="sub reveal">
-          I provide reliable Level 1/2 support, troubleshooting, endpoint & account management, and clear communication.
-          I focus on fast resolution, minimal downtime, and a great customer experience.
-        </p>
-
-        <div class="badge-row reveal">
-          <span class="badge"><b>Support</b> • Helpdesk • ITSM</span>
-          <span class="badge"><b>Systems</b> • Windows • M365</span>
-          <span class="badge"><b>Ops</b> • Troubleshooting • Documentation</span>
-        </div>
-
-        <div class="btn-row reveal">
-          <a class="btn primary" href="#contact">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7.5l8 5.25L20 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5.5 18h13A1.5 1.5 0 0020 16.5v-9A1.5 1.5 0 0018.5 6h-13A1.5 1.5 0 004 7.5v9A1.5 1.5 0 005.5 18z" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            Contact Me
-          </a>
-
-          <!-- Replace # with your CV file (e.g., resume.pdf in the repo root) -->
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 3h7l3 3v15a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M14 3v4h4" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M8.5 12h7M8.5 15.5h7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            Download CV
-          </a>
-
-          <!-- Your LinkedIn -->
-          <a class="btn" href="https://au.linkedin.com/in/tirtha-adhikari08" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6.5 9.5V19" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M6.5 6.5h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
-              <path d="M10.5 19v-5.2c0-1.1.7-2.3 2.4-2.3 1.8 0 2.6 1.2 2.6 2.7V19" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.5 12.2v-2.7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            LinkedIn
-          </a>
-        </div>
-      </div>
-
-      <aside class="profile reveal">
-        <div class="profile-inner">
-          <div class="pf-top">
-            <!-- Replace this with your own photo file name (e.g., profile.jpg) placed in repo root -->
-            <img class="avatar" src="profile.jpg" alt="Portrait of Tirtha Adhikari"
-                 onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop stop-color=%22%237C5CFF%22/><stop offset=%221%22 stop-color=%22%2300D4FF%22/></linearGradient></defs><rect width=%22160%22 height=%22160%22 rx=%2230%22 fill=%22%230A0F1F%22/><circle cx=%2280%22 cy=%2265%22 r=%2228%22 fill=%22url(%23g)%22 opacity=%220.9%22/><rect x=%2236%22 y=%22105%22 width=%2288%22 height=%2240%22 rx=%2220%22 fill=%22url(%23g)%22 opacity=%220.6%22/></svg>';" />
-            <div>
-              <p class="pf-name">Tirtha Adhikari</p>
-              <p class="pf-role">ICT Support Officer • Adelaide, AU</p>
-            </div>
-          </div>
-
-          <div class="pf-meta">
-            <div class="stat">
-              <div class="k">Focus</div>
-              <div class="v">Fast, friendly support</div>
-            </div>
-            <div class="stat">
-              <div class="k">Strength</div>
-              <div class="v">Troubleshooting & comms</div>
-            </div>
-          </div>
-
-          <div class="pf-links">
-            <!-- Replace with your email -->
-            <a class="mini" href="mailto:yourname@email.com?subject=Portfolio%20Enquiry">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 7.5l8 5.25L20 7.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5.5 18h13A1.5 1.5 0 0020 16.5v-9A1.5 1.5 0 0018.5 6h-13A1.5 1.5 0 004 7.5v9A1.5 1.5 0 005.5 18z" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              Email
-            </a>
-
-            <!-- Replace with your GitHub if you have one -->
-            <a class="mini" href="https://github.com/Tirtha123456" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 19c-3.5 1-3.5-2.5-5-3m10 6v-3.2c0-.9.3-1.7 1-2.2-3.2-.4-6.5-1.6-6.5-7a5.5 5.5 0 0 1 1.5-3.8 5 5 0 0 1 .1-3.8s1.2-.4 3.9 1.5a13.5 13.5 0 0 1 7.1 0C24 2.4 25.2 2.8 25.2 2.8a5 5 0 0 1 .1 3.8A5.5 5.5 0 0 1 26.8 10c0 5.4-3.3 6.6-6.5 7 .7.5 1 1.3 1 2.2V22" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(-4 -1)"/>
-              </svg>
-              GitHub
-            </a>
-
-            <span class="mini" title="Availability">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10Z" stroke="white" stroke-width="1.8"/>
-                <path d="M12 6v6l4 2" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Open to opportunities
-            </span>
-          </div>
-        </div>
-      </aside>
+  <div class="hero-card">
+    <img src="profile.jpg" alt="Tirtha Adhikari">
+    <h3>Tirtha Adhikari</h3>
+    <p>ICT Support Officer<br>Adelaide, Australia</p>
+    <div class="hero-links">
+      <a href="https://au.linkedin.com/in/tirtha-adhikari08" target="_blank">LinkedIn</a>
+      <a href="resume.pdf" target="_blank">Download CV</a>
     </div>
-  </header>
+  </div>
+</div>
 
-  <main class="container">
-    <section id="about" class="reveal">
-      <h2 class="section-title">About</h2>
-      <p class="section-sub">
-        <!-- Replace the text below with your real summary -->
-        I’m an ICT Support Officer with hands-on experience supporting end users, resolving incidents, and improving day-to-day IT operations.
-        I enjoy structured troubleshooting, documenting fixes, and delivering calm support under pressure.
+<!-- ABOUT -->
+<section class="container">
+  <h2>About Me</h2>
+  <p class="section-sub">
+    As an experienced ICT Support Officer, I deliver high-quality service desk and
+    technical support to ensure seamless business operations.
+    My strengths include rapid troubleshooting, system reliability,
+    documentation, and clear communication with both technical and non-technical stakeholders.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="container">
+  <h2>Key Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Service Desk & Support</h3>
+      <p>Incident management, helpdesk ticketing, onboarding, SLA adherence, end-user assistance.</p>
+    </div>
+    <div class="card">
+      <h3>Systems & Infrastructure</h3>
+      <p>Windows OS, Microsoft 365, Active Directory, servers, desktops, laptops, printers.</p>
+    </div>
+    <div class="card">
+      <h3>Networking & Security</h3>
+      <p>Basic networking, DNS/DHCP, monitoring, ICT security policies, data protection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="container">
+  <h2>Experience</h2>
+  <div class="timeline">
+
+    <div class="job">
+      <h3>ICT Support Officer – City of Norwood Payneham & St Peters</h3>
+      <span>Jan 2025 – Present | Adelaide</span>
+      <ul>
+        <li>Provide Level 1/2 ICT support for hardware, software, and network issues</li>
+        <li>Manage onboarding, device configuration, and user account setup</li>
+        <li>Maintain Active Directory, Microsoft 365, and server environments</li>
+        <li>Create documentation, user guides, and training materials</li>
+        <li>Ensure ICT security compliance and data confidentiality</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>IT Help Desk Support – Transform NDIS</h3>
+      <span>Jul 2022 – Jan 2025 | Adelaide</span>
+      <ul>
+        <li>Delivered first-level IT support across Windows, Office, and enterprise apps</li>
+        <li>Resolved incidents via ticketing systems within SLA targets</li>
+        <li>Provided remote and on-site technical assistance</li>
+        <li>Managed user accounts, permissions, and onboarding</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <h3>IT Support Analyst – ONCALL Group</h3>
+      <span>Jul 2019 – Jun 2022 | Brisbane</span>
+      <ul>
+        <li>Provided frontline support for hardware, software, and network issues</li>
+        <li>Assisted with ICT system configuration, updates, and patching</li>
+        <li>Delivered user training and supported ICT projects</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section class="container">
+  <h2>Education & Certifications</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Education</h3>
+      <p>
+        Bachelor of Information Technology – Torrens University Australia<br><br>
+        Diploma & Advanced Diploma of Network Security – Vibe College
       </p>
+    </div>
+    <div class="card">
+      <h3>Certifications</h3>
+      <p>
+        Microsoft 365 Fundamentals<br>
+        Microsoft Azure Fundamentals<br>
+        ITIL® 4 Foundation<br>
+        CCNA 2020 (WAN, Cloud & SOHO)<br>
+        Microsoft Intune & Windows 10 Support
+      </p>
+    </div>
+  </div>
+</section>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Customer-first support</h3>
-          <p>Clear communication, empathy, and keeping users productive with minimal disruption.</p>
-          <div class="tag-row">
-            <span class="tag">Service Desk</span><span class="tag">ITIL mindset</span><span class="tag">SLAs</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Strong troubleshooting</h3>
-          <p>Systematic diagnosis across hardware, OS, apps, and network fundamentals.</p>
-          <div class="tag-row">
-            <span class="tag">Windows</span><span class="tag">M365</span><span class="tag">Networking</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Documentation & improvement</h3>
-          <p>Knowledge base articles, repeatable fixes, and process improvements that reduce tickets.</p>
-          <div class="tag-row">
-            <span class="tag">KB</span><span class="tag">SOPs</span><span class="tag">Automation</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<footer>
+  © <span id="year"></span> Tirtha Adhikari • Hosted on GitHub Pages
+</footer>
 
-    <section id="skills" class="reveal">
-      <h2 class="section-title">Skills</h2>
-      <p class="section-sub">A quick snapshot of the tools and areas I’m confident with (edit these to match your real skillset).</p>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Support & ITSM</h3>
-          <p>Incident management, ticket triage, user support, escalation, and service communication.</p>
-          <div class="tag-row">
-            <span class="tag">Helpdesk</span><span class="tag">SLA</span><span class="tag">Remote support</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Systems</h3>
-          <p>Windows administration basics, endpoint setup, accounts/permissions, and standard operating procedures.</p>
-          <div class="tag-row">
-            <span class="tag">Windows</span><span class="tag">Active Directory</span><span class="tag">Microsoft 365</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Networking (foundations)</h3>
-          <p>Basic troubleshooting, connectivity checks, DNS concepts, Wi-Fi issues, and device configs.</p>
-          <div class="tag-row">
-            <span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">LAN/WAN basics</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="reveal">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-sub">Replace the entries below with your exact job titles, dates, and bullet points.</p>
-
-      <div class="card">
-        <div class="timeline">
-          <div class="event">
-            <div class="when">2024 — Present</div>
-            <p class="what">ICT Support Officer</p>
-            <p class="where">Your Organisation (replace) • Adelaide, AU</p>
-            <ul>
-              <li>Handled Level 1/2 support requests, improving resolution time and user satisfaction.</li>
-              <li>Supported endpoint setup, troubleshooting, account access, and common M365/Windows issues.</li>
-              <li>Documented repeatable fixes and created KB articles to reduce recurring incidents.</li>
-            </ul>
-          </div>
-
-          <div class="event">
-            <div class="when">Previous Role — Dates</div>
-            <p class="what">IT Support / Helpdesk (replace)</p>
-            <p class="where">Company name (replace)</p>
-            <ul>
-              <li>Assisted users with hardware/software issues and basic networking troubleshooting.</li>
-              <li>Escalated complex issues and followed through until closure.</li>
-              <li>Maintained clear ticket notes and user communication.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="reveal">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-sub">Show proof of work. Even small projects help: documentation improvements, scripts, lab builds, or home network setup.</p>
-
-      <div class="projects">
-        <div class="card project">
-          <div class="top">
-            <div>
-              <h3 style="margin:0 0 6px;">Service Desk Knowledge Base Upgrade</h3>
-              <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55;">
-                Created structured KB articles and troubleshooting checklists to reduce repeat tickets.
-              </p>
-            </div>
-            <span class="pill">Documentation</span>
-          </div>
-          <div class="tag-row">
-            <span class="tag">KB</span><span class="tag">Templates</span><span class="tag">Standard fixes</span>
-          </div>
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=70');"></div>
-          <p class="small">Tip: You can replace these images with your own. (Unsplash images are used as placeholders.)</p>
-        </div>
-
-        <div class="card project">
-          <div class="top">
-            <div>
-              <h3 style="margin:0 0 6px;">Home Lab / Virtualisation Setup</h3>
-              <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55;">
-                Built a practice environment for Windows, networking basics, and troubleshooting simulations.
-              </p>
-            </div>
-            <span class="pill">Lab</span>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Windows</span><span class="tag">Networking</span><span class="tag">Learning</span>
-          </div>
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=1200&q=70');"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="certs" class="reveal">
-      <h2 class="section-title">Certifications & Education</h2>
-      <p class="section-sub">Add your real certs/education here (copy names exactly from your certificates).</p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Certification (replace)</h3>
-          <p>Example: ITIL Foundation / CompTIA A+ / Microsoft Fundamentals.</p>
-        </div>
-        <div class="card">
-          <h3>Education (replace)</h3>
-          <p>Example: Diploma / Bachelor / Master — Institution name.</p>
-        </div>
-        <div class="card">
-          <h3>Training (replace)</h3>
-          <p>Example: Cybersecurity basics, networking course, M365 admin course.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="reveal">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-sub">Best way to reach you. This form uses your email app (no backend needed).</p>
-
-      <div class="contact">
-        <div class="card">
-          <h3 style="margin:0 0 10px;">Send me a message</h3>
-
-          <!-- This uses "mailto:" so it works on GitHub Pages (free hosting) -->
-          <form onsubmit="return sendEmail(event)">
-            <input class="field" id="name" placeholder="Your name" required />
-            <div style="height:10px"></div>
-            <input class="field" id="email" type="email" placeholder="Your email" required />
-            <div style="height:10px"></div>
-            <textarea class="field" id="message" placeholder="Your message" required></textarea>
-            <div style="height:12px"></div>
-            <button class="btn primary" type="submit">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M22 2L11 13" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Email Me
-            </button>
-          </form>
-
-          <p class="small">
-            Replace <b>yourname@email.com</b> in the code with your real email to receive messages.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 10px;">Quick links</h3>
-          <div class="tag-row" style="margin-top:0">
-            <a class="mini" href="https://au.linkedin.com/in/tirtha-adhikari08" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="mini" href="https://github.com/Tirtha123456" target="_blank" rel="noopener">GitHub</a>
-            <a class="mini" href="resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
-          </div>
-
-          <div style="height:14px"></div>
-          <h3 style="margin:0 0 10px;">What I’m looking for</h3>
-          <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55;">
-            ICT Support / Service Desk / Junior SysAdmin roles where I can deliver excellent support,
-            improve processes, and grow technical depth.
-          </p>
-
-          <div style="height:14px"></div>
-          <h3 style="margin:0 0 10px;">Location</h3>
-          <p style="margin:0;color:var(--muted);font-size:13px;">Adelaide, Australia (edit if needed)</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="page">
-    © <span id="year"></span> Tirtha Adhikari • Built on GitHub Pages • <a href="#top" class="chip" style="display:inline-block;margin-left:8px;">Back to top</a>
-  </footer>
-
-  <script>
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Simple scroll reveal
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('on'); observer.unobserve(e.target); }
-      });
-    }, {threshold: 0.1});
-    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-    // Mailto "contact form" (works on GitHub Pages)
-    function sendEmail(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const to = "yourname@email.com"; // <-- CHANGE THIS
-      const subject = encodeURIComponent("Portfolio enquiry from " + name);
-      const body = encodeURIComponent(
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n\n" +
-        message
-      );
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      return false;
-    }
-  </script>
 </body>
 </html>
 
