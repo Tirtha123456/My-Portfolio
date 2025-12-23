@@ -6,41 +6,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* ======================
+   THEME VARIABLES
+====================== */
 :root{
-  --bg:#0a0f1e;
+  --bg:#0b1020;
+  --bg2:#0f1530;
   --card:rgba(255,255,255,.08);
+  --glass:rgba(255,255,255,.12);
   --accent:#7c7cff;
   --accent2:#00e5ff;
   --text:#ffffff;
   --muted:#cfd3ff;
 }
+
+/* ======================
+   GLOBAL
+====================== */
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Arial;
   background:
-    radial-gradient(800px 400px at 10% 10%,rgba(124,124,255,.25),transparent 60%),
-    radial-gradient(600px 400px at 90% 20%,rgba(0,229,255,.25),transparent 60%),
-    var(--bg);
+    radial-gradient(900px 500px at 10% 10%,rgba(124,124,255,.25),transparent 60%),
+    radial-gradient(700px 500px at 90% 20%,rgba(0,229,255,.22),transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
   color:var(--text);
 }
 .container{max-width:1200px;margin:auto;padding:32px}
 a{text-decoration:none;color:inherit}
 
-/* HERO */
+/* ======================
+   NAV
+====================== */
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(14px);
+  background:rgba(10,15,40,.65);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-weight:700;
+  letter-spacing:.3px;
+}
+.nav-links a{
+  margin-left:18px;
+  font-size:14px;
+  color:var(--muted);
+}
+.nav-links a:hover{color:white}
+
+/* ======================
+   HERO
+====================== */
 .hero{
   display:grid;
   grid-template-columns:1.3fr .7fr;
-  gap:40px;
+  gap:50px;
   align-items:center;
-  padding:80px 0;
+  padding:90px 0;
 }
 @media(max-width:900px){.hero{grid-template-columns:1fr}}
 
 .hero h1{
-  font-size:clamp(38px,5vw,60px);
-  margin:0 0 16px;
-  line-height:1.1;
+  font-size:clamp(40px,6vw,64px);
+  margin:0 0 20px;
+  line-height:1.05;
 }
 .hero h1 span{
   background:linear-gradient(90deg,var(--accent),var(--accent2));
@@ -49,88 +88,102 @@ a{text-decoration:none;color:inherit}
 }
 .hero p{
   font-size:18px;
-  color:var(--muted);
-  max-width:650px;
   line-height:1.7;
+  color:var(--muted);
+  max-width:700px;
 }
 
 .pills span{
   display:inline-block;
   margin:10px 10px 0 0;
-  padding:8px 14px;
+  padding:8px 16px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:var(--glass);
   font-size:13px;
 }
 
-/* PROFILE CARD */
+/* ======================
+   PROFILE CARD
+====================== */
 .profile{
   background:var(--card);
-  border-radius:22px;
-  padding:28px;
-  backdrop-filter:blur(12px);
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  backdrop-filter:blur(18px);
+  border-radius:26px;
+  padding:30px;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
 }
 .profile img{
-  width:110px;
-  border-radius:20px;
-  border:2px solid var(--accent);
+  width:120px;
+  border-radius:22px;
+  border:3px solid var(--accent);
 }
-.profile h3{margin:16px 0 6px}
+.profile h3{margin:18px 0 6px}
 .profile p{margin:0;color:var(--muted)}
-.profile .links a{
+.profile .actions a{
   display:inline-block;
-  margin:14px 10px 0 0;
-  padding:10px 16px;
+  margin:16px 12px 0 0;
+  padding:12px 18px;
   border-radius:14px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   font-size:14px;
+  font-weight:600;
 }
 
-/* SECTIONS */
-section{margin:80px 0}
+/* ======================
+   SECTIONS
+====================== */
+section{margin:100px 0}
 section h2{
-  font-size:34px;
-  margin-bottom:14px;
+  font-size:36px;
+  margin-bottom:16px;
 }
-section h2 span{
-  color:var(--accent);
-}
-.desc{
-  max-width:800px;
+section h2 span{color:var(--accent)}
+.section-desc{
+  max-width:850px;
   color:var(--muted);
+  font-size:17px;
   line-height:1.7;
-  font-size:16px;
 }
 
-/* GRID */
+/* ======================
+   CARDS / GRID
+====================== */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:30px;
+  gap:28px;
+  margin-top:40px;
 }
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 
 .card{
   background:var(--card);
-  padding:26px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:.3s;
+  backdrop-filter:blur(12px);
+  border-radius:24px;
+  padding:30px;
+  transition:.35s;
 }
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 50px rgba(0,0,0,.4);
+  transform:translateY(-10px);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
 }
 .card h3{margin-top:0}
 
-/* EXPERIENCE */
+/* ======================
+   EXPERIENCE
+====================== */
 .job{
   background:var(--card);
-  padding:28px;
-  border-radius:22px;
-  margin-bottom:26px;
+  backdrop-filter:blur(14px);
+  border-radius:26px;
+  padding:34px;
+  margin-bottom:30px;
 }
 .job h3{margin:0}
 .job span{
@@ -138,50 +191,79 @@ section h2 span{
   font-size:14px;
 }
 .job ul{
-  margin:16px 0 0;
+  margin:18px 0 0;
   padding-left:20px;
 }
 .job li{
-  margin-bottom:10px;
+  margin-bottom:12px;
   color:var(--muted);
 }
 
-/* TAGS */
+/* ======================
+   PROJECTS
+====================== */
+.project img{
+  width:100%;
+  border-radius:18px;
+  margin-top:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+/* ======================
+   TAGS
+====================== */
 .tags span{
   display:inline-block;
   padding:8px 14px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:var(--glass);
   margin:8px 8px 0 0;
   font-size:13px;
 }
 
-/* FOOTER */
+/* ======================
+   FOOTER
+====================== */
 footer{
   text-align:center;
-  padding:40px 0;
-  color:var(--muted);
+  padding:50px 0;
   border-top:1px solid rgba(255,255,255,.15);
+  color:var(--muted);
 }
+
+/* ======================
+   SCROLL ANIMATION
+====================== */
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}
+.reveal.show{opacity:1;transform:none}
 </style>
 </head>
 
 <body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="brand">Tirtha Adhikari</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero reveal">
   <div>
-    <h1>
-      ICT Support Officer<br>
-      <span>Reliable. Secure. User-Focused.</span>
-    </h1>
-
+    <h1>ICT Support Officer<br><span>Reliable · Secure · User-Focused</span></h1>
     <p>
       Experienced ICT Support Officer delivering reliable, secure, and user-focused IT support.
-      Strong expertise across service desk operations, system administration, and ICT security.
+      Strong across service desk operations, system administration, troubleshooting, and ICT security.
     </p>
-
     <div class="pills">
       <span>Service Desk</span>
       <span>Windows & M365</span>
@@ -196,8 +278,7 @@ footer{
     <h3>Tirtha Adhikari</h3>
     <p>ICT Support Officer</p>
     <p>📍 Adelaide, Australia</p>
-
-    <div class="links">
+    <div class="actions">
       <a href="https://au.linkedin.com/in/tirtha-adhikari08" target="_blank">LinkedIn</a>
       <a href="resume.pdf" target="_blank">Download CV</a>
     </div>
@@ -205,9 +286,9 @@ footer{
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about" class="reveal">
   <h2><span>About</span> Me</h2>
-  <p class="desc">
+  <p class="section-desc">
     I thrive on resolving technical issues efficiently while ensuring smooth day-to-day ICT operations.
     My strengths include troubleshooting, system reliability, documentation, and clear communication
     with both technical and non-technical stakeholders.
@@ -215,7 +296,7 @@ footer{
 </section>
 
 <!-- SKILLS -->
-<section>
+<section id="skills" class="reveal">
   <h2><span>Key</span> Skills</h2>
   <div class="grid">
     <div class="card">
@@ -224,7 +305,7 @@ footer{
     </div>
     <div class="card">
       <h3>Systems & Infrastructure</h3>
-      <p>Windows OS, Microsoft 365, Active Directory, servers, desktops, laptops, and printers.</p>
+      <p>Windows OS, Microsoft 365, Active Directory, servers, desktops, laptops, printers.</p>
     </div>
     <div class="card">
       <h3>Networking & Security</h3>
@@ -234,16 +315,16 @@ footer{
 </section>
 
 <!-- EXPERIENCE -->
-<section>
+<section id="experience" class="reveal">
   <h2><span>Professional</span> Experience</h2>
 
   <div class="job">
     <h3>ICT Support Officer – City of Norwood Payneham & St Peters</h3>
     <span>Jan 2025 – Present | Adelaide</span>
     <ul>
-      <li>Provide Level 1/2 ICT support for hardware, software, and network issues</li>
-      <li>Manage onboarding, device configuration, and user account setup</li>
-      <li>Maintain Active Directory, Microsoft 365, and server environments</li>
+      <li>Provide Level 1/2 ICT support across hardware, software, and network environments</li>
+      <li>Manage onboarding, device configuration, and user account provisioning</li>
+      <li>Maintain Active Directory, Microsoft 365, and server systems</li>
       <li>Create documentation, user guides, and training materials</li>
       <li>Ensure ICT security compliance and data confidentiality</li>
     </ul>
@@ -254,7 +335,7 @@ footer{
     <span>Jul 2022 – Jan 2025 | Adelaide</span>
     <ul>
       <li>Delivered first-level IT support across Windows, Office, and enterprise applications</li>
-      <li>Resolved incidents via ticketing systems within SLA targets</li>
+      <li>Resolved incidents within SLA targets via ticketing systems</li>
       <li>Provided remote and on-site technical assistance</li>
       <li>Managed user accounts, permissions, and onboarding</li>
     </ul>
@@ -271,35 +352,49 @@ footer{
   </div>
 </section>
 
-<!-- EDUCATION & CERTS -->
-<section>
-  <h2><span>Education</span> & Certifications</h2>
-
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2><span>Projects</span> & Practical Work</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Education</h3>
-      <p>Bachelor of Information Technology – Torrens University Australia</p>
-      <p>Diploma & Advanced Diploma of Network Security – Vibe College</p>
+    <div class="card project">
+      <h3>Service Desk Knowledge Base Improvement</h3>
+      <p>Created structured KB articles to reduce repeat incidents and improve resolution time.</p>
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=70">
     </div>
-    <div class="card">
-      <h3>Certifications</h3>
-      <div class="tags">
-        <span>Microsoft 365 Fundamentals</span>
-        <span>Azure Fundamentals</span>
-        <span>ITIL® 4 Foundation</span>
-        <span>CCNA 2020</span>
-        <span>Microsoft Intune</span>
-        <span>Windows 10 Support</span>
-      </div>
+    <div class="card project">
+      <h3>Home Lab & Systems Practice</h3>
+      <p>Built lab environments for Windows, networking, and troubleshooting simulations.</p>
+      <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=1200&q=70">
+    </div>
+    <div class="card project">
+      <h3>Onboarding Automation & Documentation</h3>
+      <p>Standardised onboarding processes and documentation to improve efficiency.</p>
+      <img src="https://images.unsplash.com/photo-1581091215367-59ab6b8fa66c?auto=format&fit=crop&w=1200&q=70">
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <h2><span>Contact</span></h2>
+  <p class="section-desc">
+    Open to ICT Support, Service Desk, and Junior System Administrator opportunities.
+  </p>
+</section>
+
 <footer>
-© 2025 Tirtha Adhikari • Built with GitHub Pages
+© 2025 Tirtha Adhikari · 
 </footer>
 
 </div>
+
+<script>
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("show")})
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+
 </body>
 </html>
 
